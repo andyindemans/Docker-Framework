@@ -1,4 +1,4 @@
 #!/bin/bash
 
 rootdir=$(pwd)
-python3 $rootdir/Modules/workspace/src/Screen_Capture/record_screen.py
+python3 $rootdir/Modules/workspace/src/Example_Package/example_program.py
