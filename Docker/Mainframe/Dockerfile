@@ -1,9 +1,4 @@
 FROM ubuntu:jammy
-#FROM osrf/ros:noetic-desktop-full-focal
-#FROM nvcr.io/nvidia/pytorch:20.12-py3
-# The OSRF ROS Noetic containers use the root user.
-# Therefore, the following commands are executed as root up until the
-# USER user statement.
 
 # We love UTF!
 ENV LANG C.UTF-8
@@ -24,10 +19,6 @@ RUN set -x \
 	&& apt-get install -y libcanberra-gtk3-0 \
 	&& python3 -m pip install --upgrade pip \
 	&& pip3 install powerline-shell  \
-	&& pip3 install kafka-python scipy keras tensorflow mss \
-	&& pip3 install numpy>=1.19.5 pandas matplotlib>=3.3.4 regex>=2021.4.4 \
-    	&& pip3 install scipy>=1.5.4 jupyter>=1.0.0 scikit-learn>=0.24.1 split-folders>=0.4.3 \
-    	&& pip3 install keras>=2.3.1 \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& useradd -ms /bin/bash user \
 	&& echo "user:user" | chpasswd && adduser user sudo \

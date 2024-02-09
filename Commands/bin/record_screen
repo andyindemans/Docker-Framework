@@ -1,4 +1,0 @@
-#!/bin/bash
-
-rootdir=$(pwd)
-python3 $rootdir/Modules/workspace/src/Screen_Capture/record_screen.py
