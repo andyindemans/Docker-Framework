@@ -1,0 +1,30 @@
+version: "3.5"
+services:
+  mainframe:  # the configuration manager
+    hostname: mainframe
+    restart: always
+    container_name: mainframe
+    image: 'mainframe:latest'
+    build: ./Docker/Mainframe
+    networks:
+      - mainframe-network
+    ports:
+      - 7777
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    volumes:
+      - mainframe-datanode-volume
+      - ./Modules/workspace_src:/home/user/Modules/workspace/src 
+      - ./Commands/bin:/home/user/bin
+      - ./Notebooks:/home/user/Notebooks
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+
+volumes:
+  mainframe-datanode-volume:
+    external:
+      name: mainframe-datanode-volume
+
+networks:
+  mainframe-network:
+    name: mainframe-network
