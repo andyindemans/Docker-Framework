@@ -18,6 +18,28 @@ sudo usermod -a -G docker $USER
 The effects are only visible after the user logs out and back in again.
 
 
+# Install docker-compose
+
+Download the `docker-compose` service
+```bash
+sudo curl -L "https://github.com/docker/compose/releases/download/[VERSION]/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+```
+
+Apply the correct permissions for `docker-compose`.
+```bash
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
+Verify `docker-compose` version.
+```bash
+docker-compose --version
+```
+
+
+
+
+# Optional configurations:
+
 # Enable Nvidia GPU in Docker
 
 You need `curl` to fetch the gpgkey, etc.
